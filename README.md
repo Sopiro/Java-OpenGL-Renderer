@@ -3,6 +3,8 @@
 
 Last Update : 2019/08/13
 
+<hr>
+
 #### Implemented Rendering Techniques
 * Bump mapping(normal, parallax)
 * HDR
