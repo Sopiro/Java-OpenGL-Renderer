@@ -27,3 +27,6 @@ Last Update : 2019/08/13
 - Bloom
 - Deffered Shading
 - SSAO
+- Assimp Model loader
+- Animation
+- PBR
