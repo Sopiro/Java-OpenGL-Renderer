@@ -1,6 +1,6 @@
 package org.sopiro.game;
 
-public class Main implements Runnable
+public class Main
 {
 	public static final int WIDTH = 1280;
 	public static final int HEIGHT = 720;
@@ -18,7 +18,9 @@ public class Main implements Runnable
 	private void start()
 	{
 		running = true;
-		new Thread(this, "Game").start();
+		
+		init();
+		run();
 	}
 
 	private void init()
@@ -32,8 +34,6 @@ public class Main implements Runnable
 
 	public void run()
 	{
-		init();
-
 		long previousTime = System.nanoTime();
 		long passedTime;
 		long updateLag = 0;
