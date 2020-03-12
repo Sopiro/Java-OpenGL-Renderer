@@ -1,7 +1,5 @@
-# Java-OpenGL-Render-Engine  
-***My Java/OpenGL Render Engine implementation***
-
-Last Update : 2019/08/13
+# Java-OpenGL-Renderer
+***My Java/OpenGL Renderer***
 
 <hr>
 
@@ -14,6 +12,7 @@ Last Update : 2019/08/13
 - HDR
 - Shadow mapping  
 - OBJ parser/ Model loader
+- Assimp Model loader
 - Blinn-Phong lighting
 - Directional light, Point light
 - Forward renderer
@@ -27,6 +26,5 @@ Last Update : 2019/08/13
 - Bloom
 - Deffered Shading
 - SSAO
-- Assimp Model loader
 - Animation
 - PBR
