@@ -92,7 +92,7 @@ public class EntityRenderer
 		Material material = model.getMaterial();
 		if(material.isHasTransparency())
 		{
-			MasterRenderer.disbleCulling();
+			MasterRenderer.disableCulling();
 		}
 		glBindVertexArray(model.getRawModel().getVaoID());
 		glActiveTexture(GL_TEXTURE0);

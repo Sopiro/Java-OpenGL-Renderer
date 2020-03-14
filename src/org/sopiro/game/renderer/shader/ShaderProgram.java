@@ -47,9 +47,9 @@ public abstract class ShaderProgram
 		return glGetUniformLocation(program, uniformName);
 	}
 	
-	protected void setInt(int unifromLocation, int value)
+	protected void setInt(int uniformLocation, int value)
 	{
-		glUniform1i(unifromLocation, value);
+		glUniform1i(uniformLocation, value);
 	}
 	
 	protected void setFloat(int uniformLocation, float value)

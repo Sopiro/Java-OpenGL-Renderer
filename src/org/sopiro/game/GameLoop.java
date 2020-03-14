@@ -6,6 +6,8 @@ import java.util.Random;
 
 import org.joml.*;
 import org.lwjgl.glfw.GLFW;
+import org.sopiro.game.animation.AnimatedModel;
+import org.sopiro.game.animation.AnimationLoader;
 import org.sopiro.game.entities.*;
 import org.sopiro.game.entities.light.*;
 import org.sopiro.game.guis.*;
@@ -33,6 +35,8 @@ public class GameLoop
     private List<GuiTexture> guis = new ArrayList<GuiTexture>();
 
     private int time;
+
+    private AnimatedModel animatedModel;
 
     public GameLoop()
     {
@@ -65,6 +69,8 @@ public class GameLoop
         GuiTexture crosshair = new GuiTexture(loader.loadTexture("crosshair.png").getID(), new Vector2f(0.0f, 0.0f), new Vector2f(0.025f));
         guis.add(crosshair);
 
+        animatedModel = AnimationLoader.load(loader, "runner.dae");
+
         // camera.setPosition(new Vector3f(-100, 100, 100));
     }
 
@@ -90,8 +96,9 @@ public class GameLoop
 
     public void render(float offset)
     {
-        renderer.processEntity(e);
-        renderer.processEntity(e2);
+//        renderer.processEntity(e);
+//        renderer.processEntity(e2);
+        renderer.processAnimatedModel(animatedModel);
         renderer.processTerrain(terrains);
         renderer.render(lights, camera);
 
