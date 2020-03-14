@@ -71,7 +71,7 @@ public class GameLoop
 
         animatedModel = AnimationLoader.load(loader, "runner.dae");
 
-        // camera.setPosition(new Vector3f(-100, 100, 100));
+         camera.setPosition(new Vector3f(10, 70, 70));
     }
 
     public void update()
