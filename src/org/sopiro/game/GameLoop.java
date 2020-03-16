@@ -51,9 +51,9 @@ public class GameLoop
         lights.add(new PointLight(new Vector3f(50, 10, 50), new Vector3f(0, 0, 5), new Vector3f(1, 0.01f, 0.019f), 200));
 
         TexturedModel model = new TexturedModel(AssimpLoader.load(loader, "runner.dae"), loader.runner);
-        TexturedModel model2 = new TexturedModel(OBJLoader.loadObjModel(loader, "cube"), loader.brick3);
+        TexturedModel model2 = new TexturedModel(OBJLoader.load(loader, "cube"), loader.brick3);
 
-        e = new Entity(model, new Vector3f(0, 40, 0), new Vector3f(-90, 0, 0), 10);
+        e = new Entity(model, new Vector3f(-60, 40, 0), new Vector3f(-90, 0, 0), 10);
         e2 = new Entity(model2, new Vector3f(-100, 100, 100), new Vector3f(), 30);
 
         TerrainTexture backgroundTexture = new TerrainTexture(loader.loadTexture("terrainPlane.png").getID());
@@ -99,8 +99,8 @@ public class GameLoop
 
     public void render(float offset)
     {
-//        renderer.processEntity(e);
-//        renderer.processEntity(e2);
+        renderer.processEntity(e);
+        renderer.processEntity(e2);
         renderer.processAnimatedModel(animatedModel);
         renderer.processTerrain(terrains);
         renderer.render(lights, camera);

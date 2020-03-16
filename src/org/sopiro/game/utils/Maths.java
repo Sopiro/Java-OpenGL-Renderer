@@ -77,7 +77,7 @@ public class Maths
     {
         assert sequence.length > 0;
 
-        Vector3f res = sequence[0];
+        Vector3f res = new Vector3f(sequence[0]);
 
         for (int i = 1; i < sequence.length; i++)
             res.sub(sequence[i]);
@@ -89,7 +89,7 @@ public class Maths
     {
         assert sequence.length > 0;
 
-        Vector2f res = sequence[0];
+        Vector2f res = new Vector2f(sequence[0]);
 
         for (int i = 1; i < sequence.length; i++)
             res.sub(sequence[i]);

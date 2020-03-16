@@ -9,7 +9,7 @@ import org.sopiro.game.utils.*;
 
 public class OBJLoader
 {
-   public static RawModel loadObjModel(Loader loader, String path)
+   public static RawModel load(Loader loader, String path)
    {
       Scanner s = null;
       try

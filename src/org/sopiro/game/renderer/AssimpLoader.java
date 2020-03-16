@@ -2,6 +2,7 @@ package org.sopiro.game.renderer;
 
 import org.lwjgl.assimp.*;
 import org.sopiro.game.models.RawModel;
+import org.sopiro.game.utils.Maths;
 
 public class AssimpLoader
 {
