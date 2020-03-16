@@ -16,6 +16,8 @@ public class AnimationRenderer
 
     public void render(AnimatedModel model)
     {
+        shader.setBoneTransforms(model.getBones());
+
         glBindVertexArray(model.getVaoID());
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, model.getTextureID());

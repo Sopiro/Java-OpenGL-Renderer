@@ -2,8 +2,7 @@ package org.sopiro.game.animation;
 
 import org.lwjgl.assimp.*;
 import org.sopiro.game.renderer.Loader;
-
-import java.util.HashMap;
+import org.sopiro.game.utils.Maths;
 
 import static org.lwjgl.opengl.GL11.GL_FLOAT;
 import static org.lwjgl.opengl.GL15.*;
@@ -14,8 +13,6 @@ import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 
 public class AnimationLoader
 {
-    private static HashMap<String, Integer> boneMap;
-
     public static AnimatedModel load(Loader loader, String fileName)
     {
         AIScene scene = Assimp.aiImportFile("./res/models/" + fileName,
@@ -30,6 +27,15 @@ public class AnimationLoader
         assert scene.mNumAnimations() > 0;
         AIMesh mesh = AIMesh.create(scene.mMeshes().get(0));
 
+        /*
+            position    3
+            tex         2
+            normal      3
+            tangent     3
+            bone_id     3
+            weights     3
+                        17
+        */
         final int vertexSize = 17;
         final int floatSize = 4;
 
@@ -75,12 +81,9 @@ public class AnimationLoader
 
         final int offset = 11;
 
-        boneMap = new HashMap<>();
-
         for (int b = 0; b < mesh.mNumBones(); b++)
         {
             AIBone bone = AIBone.create(mesh.mBones().get(b));
-            boneMap.put(bone.mName().dataString(), b);
 
             for (int w = 0; w < bone.mNumWeights(); w++)
             {
@@ -103,12 +106,24 @@ public class AnimationLoader
             }
         }
 
-        for (int j = 1100 * vertexSize; j < 1200 * vertexSize; j++)
+//        for (int j = 1100 * vertexSize; j < 1101 * vertexSize; j++)
+//        {
+//            System.out.println(vertices[j]);
+//            if ((j + 1) % vertexSize == 0)
+//                System.out.println();
+//        }
+
+        Bone[] bones = new Bone[mesh.mNumBones()];
+
+        for (int b = 0; b < mesh.mNumBones(); b++)
         {
-            System.out.println(vertices[j]);
-            if ((j + 1) % vertexSize == 0)
-                System.out.println();
+            AIBone bone = AIBone.create(mesh.mBones().get(b));
+            bones[b] = new Bone(bone.mName().dataString(), Maths.convertMatrix(bone.mOffsetMatrix()));
         }
+
+        AIAnimation[] animations = new AIAnimation[scene.mNumAnimations()];
+        for (int a = 0; a < animations.length; a++)
+            animations[a] = AIAnimation.create(scene.mAnimations().get(a));
 
         int vao = glGenVertexArrays();
         glBindVertexArray(vao);
@@ -136,6 +151,12 @@ public class AnimationLoader
 
         glBindVertexArray(0);
 
-        return new AnimatedModel(vao, indices.length, loader.runner.getDiffuseMap().getID());
+        AnimatedModel model = new AnimatedModel(vao, indices.length, loader.runner.getDiffuseMap().getID());
+        model.globalInverseTransform = Maths.convertMatrix(scene.mRootNode().mTransformation()).invert();
+        model.bones = bones;
+        model.animations = animations;
+        model.root = scene.mRootNode();
+
+        return model;
     }
 }

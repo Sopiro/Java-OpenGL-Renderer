@@ -7,6 +7,8 @@ import org.sopiro.game.utils.Maths;
 
 public class AnimationShader extends ShaderProgram
 {
+    private final int MAX_BONES = 50;
+
     private final static String vsPath = "./res/shaders/animation.vs";
     private final static String fsPath = "./res/shaders/animation.fs";
 
@@ -14,6 +16,7 @@ public class AnimationShader extends ShaderProgram
     private int transformationMatrix;
     private int viewMatrix;
     private int projectionMatrix;
+    private int[] boneTransforms;
 
     public AnimationShader()
     {
@@ -26,6 +29,10 @@ public class AnimationShader extends ShaderProgram
         transformationMatrix = super.getUniformLocation("transformationMatrix");
         viewMatrix = super.getUniformLocation("viewMatrix");
         projectionMatrix = super.getUniformLocation("projectionMatrix");
+
+        boneTransforms = new int[MAX_BONES];
+        for (int i = 0; i < MAX_BONES; i++)
+            boneTransforms[i] = super.getUniformLocation("bones[" + i + "]");
     }
 
     public void setTransformationMatrix(Matrix4f matrix)
@@ -43,4 +50,9 @@ public class AnimationShader extends ShaderProgram
         super.setMatrix(this.projectionMatrix, matrix);
     }
 
+    public void setBoneTransforms(Bone[] bones)
+    {
+        for (int i = 0; i < bones.length; i++)
+            super.setMatrix(this.boneTransforms[i], bones[i].getTransformation());
+    }
 }

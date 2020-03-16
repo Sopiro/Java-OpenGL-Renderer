@@ -19,8 +19,6 @@ public class AssimpLoader
         assert scene.mNumMeshes() == 1;
         AIMesh mesh = AIMesh.create(scene.mMeshes().get(0));
 
-        System.out.println(scene.mNumAnimations());
-
         final int vertexSize = 3 + 2 + 3 + 3;
 
         float[] vertices = new float[mesh.mNumVertices() * vertexSize];

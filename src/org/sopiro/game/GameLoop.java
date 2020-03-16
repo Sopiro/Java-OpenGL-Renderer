@@ -71,7 +71,7 @@ public class GameLoop
 
         animatedModel = AnimationLoader.load(loader, "runner.dae");
 
-         camera.setPosition(new Vector3f(10, 70, 70));
+        camera.setPosition(new Vector3f(10, 70, 70));
     }
 
     public void update()
@@ -87,6 +87,9 @@ public class GameLoop
 
 //        e.rotate(0, x * 0.01f, 0);
 //        e2.rotate(x * 0.01f, z * 0.01f, x * 0.01f);
+
+//        animatedModel.updateAnimation(0.0f, 0);
+        animatedModel.updateAnimation(time / 144.0f, 0);
 
         float angle = MasterRenderer.FOV / 2.5f;
         float distance = 300;
