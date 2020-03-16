@@ -6,6 +6,7 @@
 ## Learned from
 - [ThinMaxtrix's Tutorial](https://www.youtube.com/playlist?list=PLRIWtICgwaX0u7Rf9zkZhLoLuZVfUksDP)
 - [learnopengl.com](https://learnopengl.com/)
+- [ogl dev](http://ogldev.atspace.co.uk/)
 
 ## Implemented Rendering Techniques
 - Bump mapping(normal, parallax)
@@ -21,10 +22,10 @@
 - Post processing stage
 - Mipmaping/Anisotropic filtering
 - Lightmaps(Diffuse map, Specular map)
+- Skeletal animation
 
 ## TODO list
 - Bloom
 - Deffered Shading
 - SSAO
-- Animation
 - PBR
