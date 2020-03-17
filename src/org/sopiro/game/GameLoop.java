@@ -70,7 +70,7 @@ public class GameLoop
         GuiTexture crosshair = new GuiTexture(loader.loadTexture("crosshair.png").getID(), new Vector2f(0.0f, 0.0f), new Vector2f(0.025f));
         guis.add(crosshair);
 
-        animatedModel = AnimationLoader.load(loader, "Green_Sea_Turtle_Maya_2018.fbx", loader.white.getDiffuseMap());
+        animatedModel = AnimationLoader.load(loader, "runner.dae", loader.runner.getDiffuseMap());
 
         camera.setPosition(new Vector3f(10, 70, 70));
     }
