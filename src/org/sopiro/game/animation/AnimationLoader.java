@@ -161,7 +161,6 @@ public class AnimationLoader
         glBindVertexArray(0);
 
         AnimatedModel model = new AnimatedModel(vao, indices.length, texture.getID());
-        model.globalInverseTransform = Maths.convertMatrix(scene.mRootNode().mTransformation()).invert();
         model.bones = bones;
         model.animations = animations;
         model.root = scene.mRootNode();

@@ -86,7 +86,7 @@ public class MasterRenderer
         Texture shadowMap = new Texture(shadowMapRenderer.getShadowMap());
         Matrix4f lightSpaceMatrix = shadowMapRenderer.getLightSpaceMatrix();
 
-        if(postProcessEnabled)
+        if (postProcessEnabled)
             msaa.bind();
         prepare();
 
@@ -111,7 +111,7 @@ public class MasterRenderer
         animationShader.setViewMatrix(camera);
         animationShader.setTransformationMatrix(Maths.createTransformationMatrix(
                 new Vector3f(0, 0, 0),
-                new Vector3f(-90, 0, 0),
+                new Vector3f(0, 0, 0),
                 10));
         animationRenderer.render(animatedModel);
         animationShader.stop();
@@ -121,7 +121,7 @@ public class MasterRenderer
         terrains.clear();
         entities.clear();
 
-        if(postProcessEnabled)
+        if (postProcessEnabled)
         {
             msaa.unbind();
             int screenTexture = msaa.getScreenTexure();
@@ -196,9 +196,10 @@ public class MasterRenderer
 
     public void togglePostProcessEnabled()
     {
-        if(postProcessEnabled){
-            setPostProcessEnabled(false);}
-        else
+        if (postProcessEnabled)
+        {
+            setPostProcessEnabled(false);
+        } else
             setPostProcessEnabled(true);
     }
 

@@ -16,7 +16,7 @@ uniform mat4 projectionMatrix;
 uniform mat4 bones[MAX_BONE];
 
 out vec2 tc;
-out vec3 normalVector;
+out vec3 n;
 
 void main()
 {
@@ -28,8 +28,8 @@ void main()
     bones[uint(bone_id.z)] * normalizedWeight.z;
 
     vec4 worldPosition = transformationMatrix * boneTransformation * vec4(position, 1.0);
-    normalVector = (transformationMatrix * vec4(normalVector, 1)).xyz;
-    gl_Position = projectionMatrix * viewMatrix * worldPosition;
 
+    n = (transformationMatrix * boneTransformation * vec4(normal, 0)).xyz;
     tc = texCoord;
+    gl_Position = projectionMatrix * viewMatrix * worldPosition;
 }

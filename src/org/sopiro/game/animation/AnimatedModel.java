@@ -14,7 +14,6 @@ public class AnimatedModel
     private int count;
     private int textureID;
 
-    Matrix4f globalInverseTransform; // This matrix is used to transform modeling tool's space into openGL's space.
     Bone[] bones;
     AIAnimation[] animations;
     AINode root;
@@ -88,7 +87,7 @@ public class AnimatedModel
         Bone bone = findBone(nodeName);
 
         if (bone != null)
-            bone.setTransformation(Maths.mul(globalInverseTransform, toGlobalSpace, bone.getOffsetMatrix()));
+            bone.setTransformation(Maths.mul(toGlobalSpace, bone.getOffsetMatrix()));
 
         // Recursively process the child nodes
         for (int i = 0; i < node.mNumChildren(); i++)

@@ -1,6 +1,8 @@
 package org.sopiro.game.animation;
 
 import org.joml.Matrix4f;
+import org.joml.Vector3f;
+import org.sopiro.game.utils.Maths;
 
 import static org.lwjgl.opengl.GL30.*;
 
