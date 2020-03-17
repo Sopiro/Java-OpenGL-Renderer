@@ -4,7 +4,7 @@ public class Main
 {
 	public static final int WIDTH = 1280;
 	public static final int HEIGHT = 720;
-	private static final String TITLE = "Game Engine";
+	private static final String TITLE = "Renderer";
 
 	private double nsPerUpdate = 1000000000.0 / 144.0;
 	private double nsPerFrame = 1000000000.0 / 144.0;
