@@ -25,7 +25,8 @@ public class AnimationLoader
                 Assimp.aiProcess_Triangulate |
                         Assimp.aiProcess_GenSmoothNormals |
                         Assimp.aiProcess_FlipUVs |
-                        Assimp.aiProcess_CalcTangentSpace
+                        Assimp.aiProcess_CalcTangentSpace |
+                        Assimp.aiProcess_JoinIdenticalVertices
         );
 
         assert scene != null;

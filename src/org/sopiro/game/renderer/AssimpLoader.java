@@ -2,7 +2,6 @@ package org.sopiro.game.renderer;
 
 import org.lwjgl.assimp.*;
 import org.sopiro.game.models.RawModel;
-import org.sopiro.game.utils.Maths;
 
 public class AssimpLoader
 {
@@ -12,9 +11,10 @@ public class AssimpLoader
                 Assimp.aiProcess_Triangulate |
                         Assimp.aiProcess_GenSmoothNormals |
                         Assimp.aiProcess_FlipUVs |
-                        Assimp.aiProcess_CalcTangentSpace
+                        Assimp.aiProcess_CalcTangentSpace |
+                        Assimp.aiProcess_OptimizeMeshes |
+                        Assimp.aiProcess_JoinIdenticalVertices
         );
-
 
         assert scene != null;
         assert scene.mNumMeshes() == 1;
@@ -60,7 +60,17 @@ public class AssimpLoader
             indices[i++] = (face.mIndices().get(2));
         }
 
+        printNode(scene.mRootNode(), "");
+
         return loader.loadVAO(vertices, indices);
+    }
+
+    private static void printNode(AINode node, String tabs)
+    {
+        System.out.println(tabs + "└" + node.mName().dataString());
+
+        for (int i = 0; i < node.mNumChildren(); i++)
+            printNode(AINode.create(node.mChildren().get(i)), tabs + "    ");
     }
 }
 
