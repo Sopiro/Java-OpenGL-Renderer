@@ -2,18 +2,24 @@ package org.sopiro.game.animation;
 
 import org.lwjgl.assimp.*;
 import org.sopiro.game.renderer.Loader;
+import org.sopiro.game.texture.Texture;
 import org.sopiro.game.utils.Maths;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.lwjgl.opengl.GL11.GL_FLOAT;
 import static org.lwjgl.opengl.GL15.*;
 import static org.lwjgl.opengl.GL20.glEnableVertexAttribArray;
 import static org.lwjgl.opengl.GL20.glVertexAttribPointer;
-import static org.lwjgl.opengl.GL30.glBindVertexArray;
-import static org.lwjgl.opengl.GL30.glGenVertexArrays;
+import static org.lwjgl.opengl.GL30.*;
 
 public class AnimationLoader
 {
-    public static AnimatedModel load(Loader loader, String fileName)
+    private static List<Integer> vaos = new ArrayList<>();
+    private static List<Integer> vbos = new ArrayList<>();
+
+    public static AnimatedModel load(Loader loader, String fileName, Texture texture)
     {
         AIScene scene = Assimp.aiImportFile("./res/models/" + fileName,
                 Assimp.aiProcess_Triangulate |
@@ -126,9 +132,11 @@ public class AnimationLoader
             animations[a] = AIAnimation.create(scene.mAnimations().get(a));
 
         int vao = glGenVertexArrays();
+        vaos.add(vao);
         glBindVertexArray(vao);
 
         int vbo = glGenBuffers();
+        vbos.add(vbo);
 
         glBindBuffer(GL_ARRAY_BUFFER, vbo);
         glBufferData(GL_ARRAY_BUFFER, vertices, GL_STATIC_DRAW);
@@ -151,12 +159,20 @@ public class AnimationLoader
 
         glBindVertexArray(0);
 
-        AnimatedModel model = new AnimatedModel(vao, indices.length, loader.runner.getDiffuseMap().getID());
+        AnimatedModel model = new AnimatedModel(vao, indices.length, texture.getID());
         model.globalInverseTransform = Maths.convertMatrix(scene.mRootNode().mTransformation()).invert();
         model.bones = bones;
         model.animations = animations;
         model.root = scene.mRootNode();
 
         return model;
+    }
+
+    public void terminate()
+    {
+        for (int vao : vaos)
+            glDeleteVertexArrays(vao);
+        for (int vbo : vbos)
+            glDeleteBuffers(vbo);
     }
 }

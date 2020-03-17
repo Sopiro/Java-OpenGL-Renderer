@@ -44,11 +44,7 @@ public class Camera
 		if(Input.isDown(GLFW.GLFW_KEY_D)) ax++;
 		if(Input.isDown(GLFW.GLFW_KEY_SPACE))ay++;
 		if(Input.isDown(GLFW.GLFW_KEY_LEFT_SHIFT))ay--;
-		if(Input.isPressed(GLFW.GLFW_KEY_Q))
-		{
-			GLUtills.togglePolygonMode();
-		}
-			
+
 		if(Input.isCursorBinded())
 		{
 			Vector2f acc = Input.getCursorAcceleration();

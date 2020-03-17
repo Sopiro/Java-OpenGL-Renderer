@@ -98,7 +98,7 @@ public class AnimatedModel
         }
     }
 
-    // Each node has name. If that node is bone, node name equals to bone name.
+    // Each node has a name. If that node is bone, the node name equals to bone name.
     private AINodeAnim findBoneAnimation(AIAnimation target, String nodeName)
     {
         for (int i = 0; i < target.mNumChannels(); i++)

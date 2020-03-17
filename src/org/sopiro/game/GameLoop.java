@@ -15,6 +15,7 @@ import org.sopiro.game.models.*;
 import org.sopiro.game.renderer.*;
 import org.sopiro.game.terrain.*;
 import org.sopiro.game.texture.*;
+import org.sopiro.game.utils.GLUtills;
 
 public class GameLoop
 {
@@ -69,7 +70,7 @@ public class GameLoop
         GuiTexture crosshair = new GuiTexture(loader.loadTexture("crosshair.png").getID(), new Vector2f(0.0f, 0.0f), new Vector2f(0.025f));
         guis.add(crosshair);
 
-        animatedModel = AnimationLoader.load(loader, "runner.dae");
+        animatedModel = AnimationLoader.load(loader, "runner.dae", loader.runner.getDiffuseMap());
 
         camera.setPosition(new Vector3f(10, 70, 70));
     }
@@ -84,6 +85,12 @@ public class GameLoop
 
         if (Input.isDown(GLFW.GLFW_KEY_E))
             lights.get(1).setPosition(new Vector3f(camera.getPosition()).add(0, 0, -0));
+
+        if (Input.isPressed(GLFW.GLFW_KEY_Q))
+        {
+            GLUtills.togglePolygonMode();
+            renderer.togglePostProcessEnabled();
+        }
 
 //        e.rotate(0, x * 0.01f, 0);
 //        e2.rotate(x * 0.01f, z * 0.01f, x * 0.01f);

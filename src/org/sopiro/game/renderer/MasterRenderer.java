@@ -8,7 +8,6 @@ import java.util.*;
 import org.joml.*;
 import org.sopiro.game.*;
 import org.sopiro.game.animation.AnimatedModel;
-import org.sopiro.game.animation.AnimationLoader;
 import org.sopiro.game.animation.AnimationRenderer;
 import org.sopiro.game.animation.AnimationShader;
 import org.sopiro.game.entities.*;
@@ -28,6 +27,8 @@ public class MasterRenderer
     public static final float FAR_PLANE = 2000f;
     private static final Vector3f FOG_COLOR = new Vector3f(185 / 255.0f, 223 / 255.0f, 253 / 255.0f);
     private Matrix4f projectionMatrix;
+    private float time = 0;
+    private boolean postProcessEnabled = true;
 
     private PostProcesser postProcesser;
     private MultiSampleFrameBuffer msaa;
@@ -44,8 +45,6 @@ public class MasterRenderer
 
     private Map<TexturedModel, List<Entity>> entities = new HashMap<TexturedModel, List<Entity>>();
     private List<Terrain> terrains = new ArrayList<Terrain>();
-
-    private float time = 0;
 
     private AnimationShader animationShader = new AnimationShader();
     private AnimationRenderer animationRenderer;
@@ -87,7 +86,8 @@ public class MasterRenderer
         Texture shadowMap = new Texture(shadowMapRenderer.getShadowMap());
         Matrix4f lightSpaceMatrix = shadowMapRenderer.getLightSpaceMatrix();
 
-        msaa.bind();
+        if(postProcessEnabled)
+            msaa.bind();
         prepare();
 
         terrainShader.start();
@@ -121,10 +121,13 @@ public class MasterRenderer
         terrains.clear();
         entities.clear();
 
-        msaa.unbind();
-        int screenTexture = msaa.getScreenTexure();
+        if(postProcessEnabled)
+        {
+            msaa.unbind();
+            int screenTexture = msaa.getScreenTexure();
 
-        postProcesser.postProcess(screenTexture);
+            postProcesser.postProcess(screenTexture);
+        }
     }
 
     private void prepare()
@@ -165,6 +168,7 @@ public class MasterRenderer
         postProcesser.terminate();
         entityShader.terminate();
         terrainShader.terminate();
+        animationShader.terminate();
     }
 
     public void zoom(float zoom)
@@ -188,5 +192,18 @@ public class MasterRenderer
     public void processAnimatedModel(AnimatedModel animatedModel)
     {
         this.animatedModel = animatedModel;
+    }
+
+    public void togglePostProcessEnabled()
+    {
+        if(postProcessEnabled){
+            setPostProcessEnabled(false);}
+        else
+            setPostProcessEnabled(true);
+    }
+
+    public void setPostProcessEnabled(boolean doPostProcess)
+    {
+        this.postProcessEnabled = doPostProcess;
     }
 }
