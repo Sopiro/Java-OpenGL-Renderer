@@ -1,12 +1,12 @@
 package org.sopiro.game.utils;
 
-import java.lang.Math;
-
 import org.joml.*;
 import org.lwjgl.assimp.AIMatrix4x4;
 import org.lwjgl.assimp.AIQuaternion;
 import org.lwjgl.assimp.AIVector3D;
-import org.sopiro.game.entities.*;
+import org.sopiro.game.entities.Camera;
+
+import java.lang.Math;
 
 public class Maths
 {

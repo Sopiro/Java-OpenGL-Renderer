@@ -1,24 +1,36 @@
 package org.sopiro.game.renderer;
 
-import static org.lwjgl.opengl.GL11.*;
-
-import java.lang.Math;
-import java.util.*;
-
-import org.joml.*;
-import org.sopiro.game.*;
+import org.joml.Matrix4f;
+import org.joml.Vector3f;
+import org.joml.Vector4f;
+import org.sopiro.game.Window;
 import org.sopiro.game.animation.AnimatedModel;
 import org.sopiro.game.animation.AnimationRenderer;
 import org.sopiro.game.animation.AnimationShader;
-import org.sopiro.game.entities.*;
-import org.sopiro.game.entities.light.*;
-import org.sopiro.game.models.*;
-import org.sopiro.game.postProcess.*;
-import org.sopiro.game.shadow.*;
-import org.sopiro.game.skyBox.*;
-import org.sopiro.game.terrain.*;
-import org.sopiro.game.texture.*;
-import org.sopiro.game.utils.*;
+import org.sopiro.game.entities.Camera;
+import org.sopiro.game.entities.Entity;
+import org.sopiro.game.entities.EntityRenderer;
+import org.sopiro.game.entities.EntityShader;
+import org.sopiro.game.entities.light.Light;
+import org.sopiro.game.entities.light.Sun;
+import org.sopiro.game.models.TexturedModel;
+import org.sopiro.game.postProcess.MultiSampleFrameBuffer;
+import org.sopiro.game.postProcess.PostProcesser;
+import org.sopiro.game.shadow.ShadowMapRenderer;
+import org.sopiro.game.skyBox.SkyBoxRenderer;
+import org.sopiro.game.terrain.Terrain;
+import org.sopiro.game.terrain.TerrainRenderer;
+import org.sopiro.game.terrain.TerrainShader;
+import org.sopiro.game.texture.Texture;
+import org.sopiro.game.utils.GLUtills;
+import org.sopiro.game.utils.Maths;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static org.lwjgl.opengl.GL11.*;
 
 public class MasterRenderer
 {
@@ -79,6 +91,11 @@ public class MasterRenderer
     public void render(List<Light> lights, Camera camera)
     {
         time++;
+
+//        System.out.println(projectionMatrix);
+
+        Vector4f res = Maths.mul(projectionMatrix, new Vector4f(0, 0, -1f, 1));
+//        System.out.println(res.div(res.w));
 
         Sun sun = (Sun) lights.get(0);
 

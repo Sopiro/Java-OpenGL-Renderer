@@ -1,6 +1,6 @@
 package org.sopiro.game.texture;
 
-import org.joml.*;
+import org.joml.Vector3f;
 
 public class Material
 {

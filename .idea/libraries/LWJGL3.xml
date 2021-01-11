@@ -1,21 +1,37 @@
 <component name="libraryTable">
   <library name="LWJGL3">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Desktop/2019 pgrm/lwjgl min ogl/lwjgl.jar!/" />
-      <root url="jar://$USER_HOME$/Desktop/2019 pgrm/lwjgl min ogl/lwjgl-assimp.jar!/" />
-      <root url="jar://$USER_HOME$/Desktop/2019 pgrm/lwjgl min ogl/lwjgl-assimp-natives-windows.jar!/" />
-      <root url="jar://$USER_HOME$/Desktop/2019 pgrm/lwjgl min ogl/lwjgl-glfw.jar!/" />
-      <root url="jar://$USER_HOME$/Desktop/2019 pgrm/lwjgl min ogl/lwjgl-glfw-natives-windows.jar!/" />
-      <root url="jar://$USER_HOME$/Desktop/2019 pgrm/lwjgl min ogl/lwjgl-natives-windows.jar!/" />
-      <root url="jar://$USER_HOME$/Desktop/2019 pgrm/lwjgl min ogl/lwjgl-openal.jar!/" />
-      <root url="jar://$USER_HOME$/Desktop/2019 pgrm/lwjgl min ogl/lwjgl-openal-natives-windows.jar!/" />
-      <root url="jar://$USER_HOME$/Desktop/2019 pgrm/lwjgl min ogl/lwjgl-opengl.jar!/" />
-      <root url="jar://$USER_HOME$/Desktop/2019 pgrm/lwjgl min ogl/lwjgl-opengl-natives-windows.jar!/" />
-      <root url="jar://$USER_HOME$/Desktop/2019 pgrm/lwjgl min ogl/lwjgl-stb.jar!/" />
-      <root url="jar://$USER_HOME$/Desktop/2019 pgrm/lwjgl min ogl/lwjgl-stb-natives-windows.jar!/" />
-      <root url="jar://$USER_HOME$/Desktop/2019 pgrm/lwjgl min ogl/joml-1.9.14.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/joml-1.9.14.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/lwjgl-assimp-natives-windows.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/lwjgl-assimp.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/lwjgl-glfw-natives-windows.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/lwjgl-glfw.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/lwjgl-natives-windows.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/lwjgl-openal-natives-windows.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/lwjgl-openal.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/lwjgl-opengl-natives-windows.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/lwjgl-opengl.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/lwjgl-stb-natives-windows.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/lwjgl-stb.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/lwjgl.jar!/" />
     </CLASSES>
-    <JAVADOC />
-    <SOURCES />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/joml-1.9.14-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/lwjgl-assimp-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/lwjgl-glfw-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/lwjgl-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/lwjgl-openal-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/lwjgl-opengl-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/lwjgl-stb-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/joml-1.9.14-sources.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/lwjgl-assimp-sources.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/lwjgl-glfw-sources.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/lwjgl-openal-sources.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/lwjgl-opengl-sources.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/lwjgl-sources.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Programing/2019 pgrm/lwjgl min ogl/lwjgl-stb-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>
