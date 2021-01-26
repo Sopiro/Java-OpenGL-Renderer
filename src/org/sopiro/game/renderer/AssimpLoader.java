@@ -67,7 +67,7 @@ public class AssimpLoader
 
     private static void printNode(AINode node, String tabs)
     {
-        System.out.println(tabs + "└" + node.mName().dataString());
+        System.out.println(tabs + node.mName().dataString());
 
         for (int i = 0; i < node.mNumChildren(); i++)
             printNode(AINode.create(node.mChildren().get(i)), tabs + "    ");

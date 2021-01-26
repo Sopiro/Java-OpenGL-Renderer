@@ -89,9 +89,9 @@ public class SkyBoxRenderer
 		shader.start();
 		
 		Matrix4f matrix = Maths.createViewMatrix(camera);
-		matrix._m30(0);
-		matrix._m31(0);
-		matrix._m32(0);
+		matrix.m30(0);
+		matrix.m31(0);
+		matrix.m32(0);
 		rotation += rotationSpeed;
 		matrix.rotateY((float)Math.toRadians(rotation));
 		if(rotation >= 360) rotation -= 360;
