@@ -1,5 +1,7 @@
-# Java-OpenGL-Renderer
-***Java/OpenGL Renderer***
+# Java OpenGL Renderer
+Java/OpenGL Renderer
+
+[Video](https://www.youtube.com/watch?v=8_maXgH_vU0)
 
 ## Preview
 ![preview](.github/preview.gif)
@@ -30,3 +32,6 @@
 ## TODO list
 - Deffered Shading
 - PBR
+
+## Dependency
+- [LWJGL](https://github.com/LWJGL/lwjgl3)
