@@ -1,15 +1,11 @@
 # Java OpenGL Renderer
-Java/OpenGL Renderer
+
+OpenGL Redering engine implemented in java
 
 [Video](https://www.youtube.com/watch?v=8_maXgH_vU0)
 
 ## Preview
 ![preview](.github/preview.gif)
-
-## Learned from
-- [ThinMaxtrix's Tutorial](https://www.youtube.com/playlist?list=PLRIWtICgwaX0u7Rf9zkZhLoLuZVfUksDP)
-- [learnopengl.com](https://learnopengl.com/)
-- [ogl dev](http://ogldev.atspace.co.uk/)
 
 ## Implemented Rendering Techniques
 - Forward renderer
@@ -32,6 +28,11 @@ Java/OpenGL Renderer
 ## TODO list
 - Deffered Shading
 - PBR
+
+## Learned from
+- [ThinMaxtrix's Tutorial](https://www.youtube.com/playlist?list=PLRIWtICgwaX0u7Rf9zkZhLoLuZVfUksDP)
+- [learnopengl.com](https://learnopengl.com/)
+- [ogl dev](http://ogldev.atspace.co.uk/)
 
 ## Dependency
 - [LWJGL](https://github.com/LWJGL/lwjgl3)
