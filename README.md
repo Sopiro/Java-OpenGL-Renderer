@@ -1,8 +1,8 @@
 # Java OpenGL Renderer
 
-OpenGL Rendering engine implemented in java
+Crude OpenGL Renderer implemented in java
 
-Video: https://www.youtube.com/watch?v=8_maXgH_vU0
+demo video: https://www.youtube.com/watch?v=8_maXgH_vU0
 
 ## Preview
 ![preview](.github/preview.gif)
