@@ -1,34 +1,36 @@
-# Java OpenGL Renderer
+# OpenGL Renderer in Java
 
-Crude OpenGL Renderer implemented in java
+My old OpenGL renderer written in Java using [LWJGL](https://github.com/LWJGL/lwjgl3).
 
-demo video: https://www.youtube.com/watch?v=8_maXgH_vU0
+Demo video: https://www.youtube.com/watch?v=8_maXgH_vU0
 
 ## Preview
-![preview](.github/preview.gif)
+
+<image width="512px" src=".github/preview.gif"> </image>
 
 ## Features
-- Forward renderer
-- Bump mapping(normal, parallax)
-- Skybox
-- HDR
-- Shadow mapping  
-- OBJ parser/ Model loader
-- Assimp Model loader
-- Blinn-Phong lighting
-- Directional light, Point light
-- Gamma correction
+- Forward rendering
+- Blinn-Phong lighting model
+- Classical Lightmaps(Diffuse map, Specular map)
+- Bump mapping
+  - normal mapping
+  - parallax occlusion mapping
+- Lights
+  - Directional light
+  - Point light
+- Gamma correction, tone mapping
 - Stencil outlining
 - Post processing stage
-- Mipmaping/Anisotropic filtering
-- Lightmaps(Diffuse map, Specular map)
+- Mipmaping/ Anisotropic filtering
+- Model loading
+  - OBJ parser
+  - Assimp loader
+- Shadow mapping
+- Skybox
 - Terrain generation
 - Skeletal animation
 
-## Learned from
-- [ThinMaxtrix's Tutorial](https://www.youtube.com/playlist?list=PLRIWtICgwaX0u7Rf9zkZhLoLuZVfUksDP)
-- [learnopengl.com](https://learnopengl.com/)
-- [ogl dev](http://ogldev.atspace.co.uk/)
-
-## Dependency
-- [LWJGL](https://github.com/LWJGL/lwjgl3)
+## References
+- https://learnopengl.com/
+- http://ogldev.atspace.co.uk/
+- https://www.youtube.com/playlist?list=PLRIWtICgwaX0u7Rf9zkZhLoLuZVfUksDP
